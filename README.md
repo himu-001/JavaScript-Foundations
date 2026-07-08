@@ -1,6 +1,6 @@
 # JavaScript Foundations
 
-This repository contains my notes, practice code, and exercises while learning modern JavaScript.
+This repository contains my notes, practice code, and exercises while learning modern JavaScript from by **Hitesh Choudhary (Chai aur Code)**..
 
 ## Learning Resource
 
