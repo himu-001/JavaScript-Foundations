@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Himanshu aur JavaScript</h1>
+    <button><span id="start">start</span></button>
+    <button><span id="stop">stop</span></button>
+</body>
+</html>
+<script>
+    document.body.style.backgroundColor="#212121";
+    document.body.style.color="#ffff";
+    // setInterval() is similar to setTimeout(), but instead of running once, it runs repeatedly after a fixed interval until you stop it.
+    // setInterval(()=>{
+    //     console.log("Hello",Date.now());
+    // },1000)
+    let ref;
+    document.querySelector("#start").addEventListener('click',(e)=>{
+        ref=setInterval(()=>{
+            console.log("hello",e.timeStamp);
+        },2000)
+    });
+    // similarly we have clear interval
+    document.querySelector("#stop").addEventListener('click',(e)=>{
+        clearInterval(ref);
+        console.log("Stopped");
+    });
+</script>

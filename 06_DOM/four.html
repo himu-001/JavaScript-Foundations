@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meow DOM</title>
+  </head>
+  <body style="background-color: #212121; color: #ffff">
+    <ul class="language">
+      <li>JavaScript</li>
+    </ul>
+  </body>
+  <script>
+    function addLang(...langName) {
+      const l_item = document.createElement("li");
+      l_item.innerHTML = `${langName}`;
+      document.querySelector(".language").appendChild(l_item);
+    }
+    addLang("Pyhton","TypeScript");
+    addLang("C++");
+
+    // more optimised way below
+    function addLangOptimised(...langName){
+        const l_item=document.createElement("li");
+        l_item.appendChild(document.createTextNode(langName));
+        document.querySelector(".language").appendChild(l_item);
+    }
+    addLangOptimised("Java");
+    addLangOptimised("Swift");
+
+    // Editing the element
+    const Sec_Lang=document.querySelector("li:nth-child(2)");
+    // Sec_Lang.innerHTML="mojo";
+    const new_Li=document.createElement("li");
+    new_Li.textContent="Pyhton";
+    Sec_Lang.replaceWith(new_Li);
+    // edit
+    const firstLang=document.querySelector("li:first-child");
+    firstLang.outerHTML="<li>TypeScript</li>";
+
+    // Remove an Element
+    const Last_Lang=document.querySelector("li:last-child");
+    Last_Lang.remove();
+  </script>
+</html>

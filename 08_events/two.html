@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body">
+    <h1>chai aur code</h1>
+    <button><span id="stop">Stop</span></button>
+</body>
+</html>
+<script>
+    const body=document.querySelector("#body");
+    body.style.backgroundColor="#212121";
+    body.style.color="#ffff";
+    // setTimeout() is a built-in JavaScript function used to execute a function once after a specified delay.
+    setTimeout(function (){
+        console.log("Hello");
+    },3000);
+    // pass the function reference in setTimeout()
+    const sayHi= ()=>{
+        console.log("meooow");
+    }
+    const ddd=setTimeout(sayHi,6000);
+    // clearTimeout() --> to clear or stop the setTimeout if you dont want it also takes refernce
+    document.querySelector("#stop").addEventListener('click',()=>{
+        clearTimeout(ddd);
+        console.log("stopped");
+    })
+</script>
