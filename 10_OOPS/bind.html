@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button id="mop">button click</button>
+</body>
+</html>
+<script>
+
+    class React{
+        constructor(){
+            this.library="react"
+            this.server= "https//:localhost:300/"
+
+            document.querySelector("#mop").addEventListener('click',this.handleClick.bind(this))
+        }
+        // without bind -> When you click the button, this inside handleClick() refers to the button element, not your React object.
+        handleClick(){
+                console.log("button clicked");
+                console.log(this);
+                
+            }
+    }
+
+    const user= new React();
+</script>
