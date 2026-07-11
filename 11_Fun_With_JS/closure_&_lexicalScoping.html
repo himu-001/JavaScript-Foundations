@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body id="body" >
+    <button id="orange">orange</button>
+    <button id="green">green</button>
+</body>
+</html>
+<script>
+    document.querySelector('#body').style.backgroundColor ="#212121";
+    document.body.style.color="#ffffff";
+
+
+    // function init() {
+    //     let name = "Mozilla"; 
+    //     function displayName() {
+    //         // displayName is the inner function, that forms the closure
+    //         console.log(name); //use the variable declared in the parent function
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+//    --------------------------------------------------------------------   //
+
+    // function outer(){
+    //     let username ="Hima";
+    //     function inner(){
+    //         let secret ="MY!@#"
+    //         console.log("INNER",username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("INNER_TWO",username);
+
+    //         // ❌ Error: `secret` is declared inside `inner()`, so it is local to that function.
+    //         // `innerTwo()` is a sibling function, not a child of `inner()`.
+    //         // Due to lexical scoping, `innerTwo()` cannot access variables declared inside `inner()`.
+    //         // console.log(secret);
+             
+    //     }
+    //     // console.log("OUTER", secret); // this gives error because secret is inside child function, child can inherit from parent but parent can't inherit from child
+    //     inner();
+    //     innerTwo()
+    // }
+    // outer();
+    // console.log("TOO OUTER",username); //this gives error as it doesnt have access to username outside function scope
+
+    //-----------------------------------------------------------------------//
+
+    // A closure is created when a function is returned or passed around,
+    // allowing it to remember variables from its outer lexical scope
+    // even after the outer function has finished executing.    
+
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+
+</script>
+
+<script>
+    // document.querySelector("#orange").addEventListener('click',(e)=>{
+    //     document.body.style.backgroundColor="orange";
+    // })
+
+    //  document.querySelector("#green").addEventListener('click',(e)=>{
+    //     document.body.style.backgroundColor="green";
+    // })
+
+    function clickHandler(color){
+        // document.body.style.backgroundColor=`${color}`;
+
+        return function(){
+            document.body.style.backgroundColor=`${color}`;
+        }
+    }
+    document.getElementById("orange").onclick=clickHandler("orange");
+    document.getElementById("green").onclick=clickHandler("green");
+
+    // Lexical Scoping:
+    // The returned function can access `color` because it is defined inside
+    // `clickHandler()`.
+
+    // Closure:
+    // Even after `clickHandler()` finishes, the returned function remembers
+    // the value of `color`, allowing each button to keep its own color.
+</script>
